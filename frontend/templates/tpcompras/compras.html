@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras</title>
+</head>
+<body>
+    <h1>Bem vindo a página de compras</h1>
+    <ul id="lista-compras"></ul>
+
+    <script>
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1ODc2NTI5LCJpYXQiOjE3NTU4NzYyMzAsImp0aSI6IjBjZWQwM2JkMjMwMTRhZjQ5MDJhOThkZjg4NzIzNThkIiwidXNlcl9pZCI6IjEifQ.HQIfMwmKDOlcNE5fD08ib1_Ckz8WCcDSEw1wn4ZKpaE'
+
+       fetch('/api/v1/compras/', {
+           method: 'GET',
+           headers: {
+               'Authorization': 'Bearer ' + token,
+               'Content-Type': 'application/json'
+           }
+        })
+       .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na autenticação ou requisição');
+            } 
+            return response.json();
+        })
+        .then(data => {
+           const lista = document.getElementById('lista-compras');
+           const pecas = data.results || data; 
+           pecas.forEach(peca => {
+               const item = document.createElement('li');
+               item.textContent = `ID: ${peca.id} - Venda_nome: ${peca.produto}`;
+               lista.appendChild(item);
+           });
+       })
+       .catch(error => {
+           alert('ERRO AO BUSCAR DADOS: ' + error);
+       });
+    </script>
+</body>
+</html>

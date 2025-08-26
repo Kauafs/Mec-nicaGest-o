@@ -1,0 +1,15 @@
+Quando baixar esse projeto, baixe o projeto com tudo com> pip install -r requirements.txt
+
+parei na viewset, configurar lá
+
+
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTk1NTM2OCwiaWF0IjoxNzU1ODY4OTY4LCJqdGkiOiIxNGNlOTgxODdiZmU0NjkxOGExY2I1ZGJjOGJhM2UwNyIsInVzZXJfaWQiOiIxIn0.jUkRFWcmie2cgQ07FDteRG56ttBDx-tkjygg5f_DoVs",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1ODY5MjY4LCJpYXQiOjE3NTU4Njg5NjksImp0aSI6IjI5ZGJlZmYwNGI3ODQwZWJiNDk5YmU0Mjc0ZTA2Njg0IiwidXNlcl9pZCI6IjEifQ.MNBm1dzUFPWc9ojW2MKxUGwAWSQ-R-59p_ySFcN8BME"
+}
+
+tratar esse erro: AttributeError: 'BuyPecas' object has no attribute 'part'
+
+from loja.classes.buyPecas import BuyPecas
+from loja.seriliazers import srzBuypecas
